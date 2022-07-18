@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Users</h1>
+    <a href="{{url_for('dashboard.add_user')}}" class="btn btn-primary">Add User</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Options</th>
+        </thead>
+        <tbody>
+            {% for user in users%}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <a href="{{url_for('dashboard.edit_user', user_id=user.id)}}" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row g-3">
+        <div class="col-md-4 offset-lg-4">
+            <br>
+            <br>
+            <br>
+            <h2>Subscription</h2>
+            <p>
+                Please subscribe to our newsletter. 
+            </p>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.name.label }}<br>
+                    {{ form.name(size=32, class="form-control") }}<br>
+                    {% for error in form.name.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=32, class="form-control") }}<br>
+                    {% for error in form.email.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </p>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>{{ form.submit(class="form-control btn btn-primary") }}</p>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+{% endblock %}

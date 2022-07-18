@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row g-3">
+        <div class="col-md-12">
+            <h1>Settings</h1>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag()}}
+                <p>
+                    {{ form.welcome_message.label }}
+                    {{ form.welcome_message(class="form-control", rows=6)}}
+                    {% for error in form.welcome_message.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.icon.label }}
+                    {{ form.icon(class="form-control")}}
+                    {% for error in form.icon.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.email_address.label }}
+                    {{ form.email_address(class="form-control")}}
+                    {% for error in form.email_address.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.email_password.label }}
+                    {{ form.email_password(class="form-control")}}
+                    {% for error in form.email_password.errors %}
+                    <span style="color: red;">[{{error}}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{form.submit(class="btn btn-primary")}}
+                </p>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <p>
+                {{ form.appreciation_message.label }}
+                {{ form.appreciation_message(class="form-control", rows=6)}}
+                {% for error in form.appreciation_message.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    
+{% endblock %}

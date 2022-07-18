@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Subcribers</h1>
+    <table class="table table-bordered">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Confirmed</th>
+            <th>Unsubscribe</th>
+            <th>Options</th>
+        </thead>
+        <tbody>
+            {% for subscriber in subcribers%}
+                <tr>
+                    <td>{{subscriber.id}}</td>
+                    <td>{{subscriber.first_name}}</td>
+                    <td>{{subscriber.last_name}}</td>
+                    <td>{{subscriber.email}}</td>
+                    <td>{{subscriber.confirmed}}</td>
+                    <td>{{subscriber.unsubscribe}}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

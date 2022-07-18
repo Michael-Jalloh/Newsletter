@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <a href="{{url_for('dashboard.send_newsletter')}}" class="btn btn-primary">Send Newsletter</a>
+    <br>
+    <br>
+    <div class="rows">
+        <div class="col-md-10">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Options</th>
+                </thead>
+                <tbody>
+                    {% for newsletter in newsletters %}
+                        <tr>
+                            <td>{{newsletter.id}}</td>
+                            <td>{{newsletter.title}}</td>
+                            <td>
+                                <a href="{{url_for('dashboard.delete_newsletter', newsletter_id=newsletter.id)}}" class="btn btn-primary">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
